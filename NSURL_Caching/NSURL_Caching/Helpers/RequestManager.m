@@ -32,6 +32,9 @@ AFHTTPSessionManager * manager;
     });
     return sharedInstance;
 }
++ (NSString *) repositoryPath {
+    return REPOSITORIES_PATH;
+}
 
 - (instancetype)init {
     self = [super init];

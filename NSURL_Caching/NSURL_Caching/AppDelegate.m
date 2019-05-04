@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 //temp
 #import "RequestManager.h"
+#import "CoreDataHelper.h"
 
 @interface AppDelegate ()
 
@@ -18,11 +19,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [[RequestManager sharedInstance] getPopularRepositoriesForSwiftAtPage:2];
-    Repo *rep = [Repo new];
-    rep.ownerName = @"Alamofire";
-    rep.name = @"Alamofire";
-    [[RequestManager sharedInstance] getCommitsForRepo:rep];
+    [CoreDataHelper cleanCleanable];
+    [[RequestManager sharedInstance] getPopularRepositoriesForSwiftAtPage:0];
+    [[RequestManager sharedInstance] getPopularRepositoriesForSwiftAtPage:1];
+//    Repo *rep = [Repo new];
+//    rep.ownerName = @"Alamofire";
+//    rep.name = @"Alamofire";
+//    [[RequestManager sharedInstance] getCommitsForRepo:rep];
     return YES;
 }
 

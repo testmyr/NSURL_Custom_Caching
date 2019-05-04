@@ -8,7 +8,7 @@
 
 #import "CustomURLProtocol.h"
 #import "AppDelegate.h"
-#import "GitHubResponse+CoreDataProperties.h"
+#import "CoreDataHelper.h"
 
 typedef NS_ENUM(NSInteger, FTHTTPCodesNo) {
     // Informational
@@ -128,7 +128,7 @@ typedef NS_ENUM(NSInteger, FTHTTPCodesNo) {
 }
 
 - (void)startLoading {
-    GitHubResponse *cachedResponse = [self cachedResponseForCurrentRequest];
+    GitHubResponse *cachedResponse = [CoreDataHelper cachedResponseForUrl:self.request.URL.absoluteString];
     if (cachedResponse && cachedResponse.etag == nil) {
         NSData *data = cachedResponse.data;
         NSString *mimeType = cachedResponse.mimeType;
@@ -155,51 +155,6 @@ typedef NS_ENUM(NSInteger, FTHTTPCodesNo) {
 - (void)stopLoading {
     [self.connection cancel];
     self.connection = nil;
-}
-
-
-#pragma mark - Core Data cache related
-
-- (void)saveCachedResponse {
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = delegate.persistentContainer.viewContext;
-    GitHubResponse *cachedResponse = [NSEntityDescription insertNewObjectForEntityForName:@"GitHubResponse" inManagedObjectContext:context];
-    cachedResponse.data = self.mutableData;
-    cachedResponse.url = self.request.URL.absoluteString;
-    
-    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)self.response;
-    NSMutableDictionary *headers = [httpResponse.allHeaderFields mutableCopy];
-    cachedResponse.etag = headers[@"Etag"];
-    
-    NSString *dateStr = headers[@"Date"];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz"];
-    NSDate *date = [dateFormatter dateFromString:dateStr];
-    cachedResponse.timestamp = date;
-    
-    cachedResponse.mimeType = self.response.MIMEType;
-    cachedResponse.encoding = self.response.textEncodingName;
-    NSError *error;
-    BOOL const success = [context save:&error];
-    if (!success) {
-        NSLog(@"Could not cache the response.");
-    }
-}
-
-- (GitHubResponse *)cachedResponseForCurrentRequest {
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = delegate.persistentContainer.viewContext;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"GitHubResponse" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"url == %@", self.request.URL.absoluteString];
-    [fetchRequest setPredicate:predicate];
-    NSError *error;
-    NSArray *result = [context executeFetchRequest:fetchRequest error:&error];
-    if (result && result.count > 0) {
-        return result[0];
-    }
-    return nil;
 }
 
 - (void)passCachedData {
@@ -241,8 +196,8 @@ typedef NS_ENUM(NSInteger, FTHTTPCodesNo) {
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     [self.client URLProtocolDidFinishLoading:self];
-    if (self.mutableData != nil) {
-        [self saveCachedResponse];
+    if (self.mutableData.length > 0) {
+        [CoreDataHelper addResponseEnityBasedOn:self.response data:self.mutableData andUrlPath:self.request.URL.absoluteString];
     }
 }
 

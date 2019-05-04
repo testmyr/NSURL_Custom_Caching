@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RequestManager : NSObject
 
 + (RequestManager *)sharedInstance;
++ (NSString *) repositoryPath;
 
 - (void) getPopularRepositoriesForSwiftAtPage: (NSInteger) pageIndex;
 - (void) getCommitsForRepo: (Repo*) repository;

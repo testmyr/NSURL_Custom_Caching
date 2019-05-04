@@ -18,8 +18,7 @@
 		5A4CB14A227D01B700E6B048 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB149227D01B700E6B048 /* RequestManager.m */; };
 		5A4CB14E227D121400E6B048 /* Repo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB14D227D121400E6B048 /* Repo.m */; };
 		5A4CB151227D238C00E6B048 /* GitHubResponses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB14F227D238C00E6B048 /* GitHubResponses.xcdatamodeld */; };
-		5A4CB185227D2EF600E6B048 /* GitHubResponse+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB182227D2EF600E6B048 /* GitHubResponse+CoreDataClass.m */; };
-		5A4CB186227D2EF600E6B048 /* GitHubResponse+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB184227D2EF600E6B048 /* GitHubResponse+CoreDataProperties.m */; };
+		5A4CB18A227DCDCF00E6B048 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB189227DCDCF00E6B048 /* CoreDataHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,10 +41,8 @@
 		5A4CB14C227D121400E6B048 /* Repo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Repo.h; sourceTree = "<group>"; };
 		5A4CB14D227D121400E6B048 /* Repo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Repo.m; sourceTree = "<group>"; };
 		5A4CB150227D238C00E6B048 /* GitHubResponses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GitHubResponses.xcdatamodel; sourceTree = "<group>"; };
-		5A4CB181227D2EF600E6B048 /* GitHubResponse+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GitHubResponse+CoreDataClass.h"; sourceTree = "<group>"; };
-		5A4CB182227D2EF600E6B048 /* GitHubResponse+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GitHubResponse+CoreDataClass.m"; sourceTree = "<group>"; };
-		5A4CB183227D2EF600E6B048 /* GitHubResponse+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GitHubResponse+CoreDataProperties.h"; sourceTree = "<group>"; };
-		5A4CB184227D2EF600E6B048 /* GitHubResponse+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GitHubResponse+CoreDataProperties.m"; sourceTree = "<group>"; };
+		5A4CB188227DCDCF00E6B048 /* CoreDataHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		5A4CB189227DCDCF00E6B048 /* CoreDataHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		8850BEC6B074F5CEF244DD1D /* Pods-NSURL_Caching.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSURL_Caching.release.xcconfig"; path = "Pods/Target Support Files/Pods-NSURL_Caching/Pods-NSURL_Caching.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +101,8 @@
 				5A4CB146227D007C00E6B048 /* CustomURLProtocol.m */,
 				5A4CB148227D01B700E6B048 /* RequestManager.h */,
 				5A4CB149227D01B700E6B048 /* RequestManager.m */,
+				5A4CB188227DCDCF00E6B048 /* CoreDataHelper.h */,
+				5A4CB189227DCDCF00E6B048 /* CoreDataHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -111,10 +110,6 @@
 		5A4CB14B227D11A600E6B048 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5A4CB181227D2EF600E6B048 /* GitHubResponse+CoreDataClass.h */,
-				5A4CB182227D2EF600E6B048 /* GitHubResponse+CoreDataClass.m */,
-				5A4CB183227D2EF600E6B048 /* GitHubResponse+CoreDataProperties.h */,
-				5A4CB184227D2EF600E6B048 /* GitHubResponse+CoreDataProperties.m */,
 				5A4CB14C227D121400E6B048 /* Repo.h */,
 				5A4CB14D227D121400E6B048 /* Repo.m */,
 				5A4CB14F227D238C00E6B048 /* GitHubResponses.xcdatamodeld */,
@@ -237,13 +232,12 @@
 			files = (
 				5A4CB151227D238C00E6B048 /* GitHubResponses.xcdatamodeld in Sources */,
 				5A4CB14A227D01B700E6B048 /* RequestManager.m in Sources */,
+				5A4CB18A227DCDCF00E6B048 /* CoreDataHelper.m in Sources */,
 				5A4CB133227B647600E6B048 /* ViewController.m in Sources */,
 				5A4CB13E227B648900E6B048 /* main.m in Sources */,
 				5A4CB14E227D121400E6B048 /* Repo.m in Sources */,
-				5A4CB186227D2EF600E6B048 /* GitHubResponse+CoreDataProperties.m in Sources */,
 				5A4CB147227D007C00E6B048 /* CustomURLProtocol.m in Sources */,
 				5A4CB130227B647600E6B048 /* AppDelegate.m in Sources */,
-				5A4CB185227D2EF600E6B048 /* GitHubResponse+CoreDataClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

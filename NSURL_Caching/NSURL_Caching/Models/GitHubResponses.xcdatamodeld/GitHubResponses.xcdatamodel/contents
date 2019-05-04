@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G5019" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <entity name="GitHubResponse" representedClassName="GitHubResponse" syncable="YES">
+    <entity name="GitHubResponse" representedClassName="GitHubResponse" syncable="YES" codeGenerationType="class">
+        <attribute name="cleanableManually" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="encoding" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="etag" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mimeType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <fetchIndex name="byPropertyIndex">
+        <fetchIndex name="byUrlIndex">
             <fetchIndexElement property="url" type="Binary" order="ascending"/>
+        </fetchIndex>
+        <fetchIndex name="byCleanableIndex">
+            <fetchIndexElement property="cleanableManually" type="Binary" order="ascending"/>
         </fetchIndex>
     </entity>
     <elements>
-        <element name="GitHubResponse" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="GitHubResponse" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>
