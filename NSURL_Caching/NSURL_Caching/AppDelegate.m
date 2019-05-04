@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+//temp
+#import "RequestManager.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //[[RequestManager sharedInstance] getPopularRepositoriesForSwiftAtPage:0];
+    Repo *rep = [Repo new];
+    rep.ownerName = @"Alamofire";
+    rep.name = @"AlamofireImage";
+    [[RequestManager sharedInstance] getCommitsForRepo:rep];
     return YES;
 }
 
