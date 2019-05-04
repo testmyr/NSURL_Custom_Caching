@@ -37,9 +37,10 @@ AFHTTPSessionManager * manager;
     self = [super init];
     if (self) {
         NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-//        NSMutableArray * protocolsArray = [sessionConfiguration.protocolClasses mutableCopy];
-//        [protocolsArray insertObject:[CustomURLProtocol class] atIndex:0];
-//        sessionConfiguration.protocolClasses = protocolsArray;
+        //settting of the custom request/response handler
+        NSMutableArray * protocolsArray = [sessionConfiguration.protocolClasses mutableCopy];
+        [protocolsArray insertObject:[CustomURLProtocol class] atIndex:0];
+        sessionConfiguration.protocolClasses = protocolsArray;
         manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:sessionConfiguration];
     }
     return self;
