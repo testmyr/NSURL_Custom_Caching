@@ -10,9 +10,9 @@
 
 @implementation Repo
 
-@synthesize ownerName, name;
+@synthesize ownerName, name, descr, ownerAvatarUrl;
 
-- (instancetype) initWithOwnerName: (NSString *)ownerName andName: (NSString *)name {    
+- (instancetype) initWithName: (NSString *)name ownerName: (NSString *)ownerName {    
     self = [super init];
     if (self) {
         self.ownerName = ownerName;

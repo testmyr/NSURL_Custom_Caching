@@ -11,12 +11,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#define REPO_PAGE_SIZE @20
+
+typedef void (^OperationFailureCompletionBlock)(NSError*);
+typedef void (^OperationSuccessCompletionBlock)(id);
+
 @interface RequestManager : NSObject
 
 + (RequestManager *)sharedInstance;
 + (NSString *) repositoryPath;
 
-- (void) getPopularRepositoriesForSwiftAtPage: (NSInteger) pageIndex;
+- (void) getPopularRepositoriesForSwiftAtPage: (NSInteger) pageIndex
+                                       sucess: (OperationSuccessCompletionBlock) success
+                                      failure: (OperationFailureCompletionBlock) failure;
 - (void) getCommitsForRepo: (Repo*) repository;
 
 @end

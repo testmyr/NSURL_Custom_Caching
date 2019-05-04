@@ -19,9 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [CoreDataHelper cleanCleanable];
-    [[RequestManager sharedInstance] getPopularRepositoriesForSwiftAtPage:0];
-    [[RequestManager sharedInstance] getPopularRepositoriesForSwiftAtPage:1];
+    //[CoreDataHelper cleanCleanable];
+//    [[RequestManager sharedInstance] getPopularRepositoriesForSwiftAtPage:0];
+//    [[RequestManager sharedInstance] getPopularRepositoriesForSwiftAtPage:1];
 //    Repo *rep = [Repo new];
 //    rep.ownerName = @"Alamofire";
 //    rep.name = @"Alamofire";

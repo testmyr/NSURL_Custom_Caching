@@ -58,6 +58,7 @@
 }
 
 + (void) cleanCleanable {
+    //FYI cleanableManually could be changed into Int and array of cleanable path urls could be mapped into that Int value(which would be a R-tree in core data)
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"cleanableManually == YES"];
     NSFetchRequest *fetchRequest = [GitHubResponse fetchRequest];
     [fetchRequest setPredicate:predicate];

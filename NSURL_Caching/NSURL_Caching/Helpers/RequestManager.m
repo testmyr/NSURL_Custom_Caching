@@ -12,11 +12,12 @@
 #import "Repo.h"
 
 #define SWIFT_LANGUAGE @"Swift"
-#define REPO_PAGE_SIZE @20
 #define BASE_URL @"https://api.github.com/"
 #define REPOSITORIES_PATH @"search/repositories"
 #define COMMITS_PATH @"repos/%@/%@/commits"
 #define BRANCHES_PATH @"repos/%@/%@/branches"
+
+
 
 @implementation RequestManager
 
@@ -49,16 +50,23 @@ AFHTTPSessionManager * manager;
     return self;
 }
 
-- (void) getPopularRepositoriesForSwiftAtPage: (NSInteger) pageIndex; {
-    [self getPopularRepositoriesForLanguage:SWIFT_LANGUAGE atPage:pageIndex];
+- (void) getPopularRepositoriesForSwiftAtPage: (NSInteger) pageIndex
+                                       sucess: (OperationSuccessCompletionBlock) success
+                                      failure: (OperationFailureCompletionBlock) failure {
+    [self getPopularRepositoriesForLanguage:SWIFT_LANGUAGE atPage:pageIndex sucess:success failure:failure];
 }
 
-- (void) getPopularRepositoriesForLanguage: (NSString*) language atPage: (NSInteger) pageIndex {
+- (void) getPopularRepositoriesForLanguage: (NSString*) language
+                                    atPage: (NSInteger) pageIndex
+                                    sucess: (OperationSuccessCompletionBlock) success
+                                   failure: (OperationFailureCompletionBlock) failure {
     NSDictionary *params = @{@"q": @"language:Swift", @"page": @(pageIndex), @"per_page": REPO_PAGE_SIZE};
     [manager GET:[NSString stringWithFormat:@"%@%@", BASE_URL, REPOSITORIES_PATH] parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        success(responseObject[@"items"]);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        failure(error);
     }];
 }
 

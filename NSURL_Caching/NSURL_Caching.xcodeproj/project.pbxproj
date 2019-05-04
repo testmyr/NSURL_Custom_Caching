@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2B1DC0B3B3CD7BE0A925F88F /* libPods-NSURL_Caching.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 594DC53D1EB7C0A07BACC06A /* libPods-NSURL_Caching.a */; };
 		5A4CB130227B647600E6B048 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB12F227B647600E6B048 /* AppDelegate.m */; };
-		5A4CB133227B647600E6B048 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB132227B647600E6B048 /* ViewController.m */; };
 		5A4CB136227B647600E6B048 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A4CB134227B647600E6B048 /* Main.storyboard */; };
 		5A4CB138227B648900E6B048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A4CB137227B648900E6B048 /* Assets.xcassets */; };
 		5A4CB13B227B648900E6B048 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A4CB139227B648900E6B048 /* LaunchScreen.storyboard */; };
@@ -19,6 +18,9 @@
 		5A4CB14E227D121400E6B048 /* Repo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB14D227D121400E6B048 /* Repo.m */; };
 		5A4CB151227D238C00E6B048 /* GitHubResponses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB14F227D238C00E6B048 /* GitHubResponses.xcdatamodeld */; };
 		5A4CB18A227DCDCF00E6B048 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB189227DCDCF00E6B048 /* CoreDataHelper.m */; };
+		5A4CB18D227DDC9C00E6B048 /* PopularRepositoriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB18C227DDC9C00E6B048 /* PopularRepositoriesVC.m */; };
+		5A4CB190227DF15500E6B048 /* PopularRepoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB18F227DF15500E6B048 /* PopularRepoCell.m */; };
+		5A4CB193227DF4A800E6B048 /* PopularRepositoriesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB192227DF4A800E6B048 /* PopularRepositoriesViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +29,6 @@
 		5A4CB12B227B647600E6B048 /* NSURL_Caching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSURL_Caching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4CB12E227B647600E6B048 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5A4CB12F227B647600E6B048 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5A4CB131227B647600E6B048 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5A4CB132227B647600E6B048 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5A4CB135227B647600E6B048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5A4CB137227B648900E6B048 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A4CB13A227B648900E6B048 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +43,12 @@
 		5A4CB150227D238C00E6B048 /* GitHubResponses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GitHubResponses.xcdatamodel; sourceTree = "<group>"; };
 		5A4CB188227DCDCF00E6B048 /* CoreDataHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
 		5A4CB189227DCDCF00E6B048 /* CoreDataHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		5A4CB18B227DDC9C00E6B048 /* PopularRepositoriesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopularRepositoriesVC.h; sourceTree = "<group>"; };
+		5A4CB18C227DDC9C00E6B048 /* PopularRepositoriesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopularRepositoriesVC.m; sourceTree = "<group>"; };
+		5A4CB18E227DF15500E6B048 /* PopularRepoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopularRepoCell.h; sourceTree = "<group>"; };
+		5A4CB18F227DF15500E6B048 /* PopularRepoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopularRepoCell.m; sourceTree = "<group>"; };
+		5A4CB191227DF4A700E6B048 /* PopularRepositoriesViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopularRepositoriesViewModel.h; sourceTree = "<group>"; };
+		5A4CB192227DF4A800E6B048 /* PopularRepositoriesViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopularRepositoriesViewModel.m; sourceTree = "<group>"; };
 		8850BEC6B074F5CEF244DD1D /* Pods-NSURL_Caching.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSURL_Caching.release.xcconfig"; path = "Pods/Target Support Files/Pods-NSURL_Caching/Pods-NSURL_Caching.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,13 +89,17 @@
 				5A4CB144227D004600E6B048 /* Helpers */,
 				5A4CB12E227B647600E6B048 /* AppDelegate.h */,
 				5A4CB12F227B647600E6B048 /* AppDelegate.m */,
-				5A4CB131227B647600E6B048 /* ViewController.h */,
-				5A4CB132227B647600E6B048 /* ViewController.m */,
 				5A4CB134227B647600E6B048 /* Main.storyboard */,
 				5A4CB137227B648900E6B048 /* Assets.xcassets */,
 				5A4CB139227B648900E6B048 /* LaunchScreen.storyboard */,
 				5A4CB13C227B648900E6B048 /* Info.plist */,
 				5A4CB13D227B648900E6B048 /* main.m */,
+				5A4CB18E227DF15500E6B048 /* PopularRepoCell.h */,
+				5A4CB18F227DF15500E6B048 /* PopularRepoCell.m */,
+				5A4CB18B227DDC9C00E6B048 /* PopularRepositoriesVC.h */,
+				5A4CB18C227DDC9C00E6B048 /* PopularRepositoriesVC.m */,
+				5A4CB191227DF4A700E6B048 /* PopularRepositoriesViewModel.h */,
+				5A4CB192227DF4A800E6B048 /* PopularRepositoriesViewModel.m */,
 			);
 			path = NSURL_Caching;
 			sourceTree = "<group>";
@@ -233,11 +243,13 @@
 				5A4CB151227D238C00E6B048 /* GitHubResponses.xcdatamodeld in Sources */,
 				5A4CB14A227D01B700E6B048 /* RequestManager.m in Sources */,
 				5A4CB18A227DCDCF00E6B048 /* CoreDataHelper.m in Sources */,
-				5A4CB133227B647600E6B048 /* ViewController.m in Sources */,
 				5A4CB13E227B648900E6B048 /* main.m in Sources */,
 				5A4CB14E227D121400E6B048 /* Repo.m in Sources */,
 				5A4CB147227D007C00E6B048 /* CustomURLProtocol.m in Sources */,
+				5A4CB193227DF4A800E6B048 /* PopularRepositoriesViewModel.m in Sources */,
+				5A4CB18D227DDC9C00E6B048 /* PopularRepositoriesVC.m in Sources */,
 				5A4CB130227B647600E6B048 /* AppDelegate.m in Sources */,
+				5A4CB190227DF15500E6B048 /* PopularRepoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
