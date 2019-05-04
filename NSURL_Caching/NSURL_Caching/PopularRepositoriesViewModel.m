@@ -27,6 +27,7 @@ NSMutableArray *repositories;
 
 - (void)start {
     repositories = [[NSMutableArray alloc] initWithCapacity:20];
+    //TODO refactoring
     [[RequestManager sharedInstance] getPopularRepositoriesForSwiftAtPage:1
                                                                    sucess:^(id result){
                                                                        if (result != nil) {

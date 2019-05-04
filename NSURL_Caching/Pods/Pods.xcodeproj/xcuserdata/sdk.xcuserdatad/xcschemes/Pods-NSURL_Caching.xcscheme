@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E342F246D109E01FD922D3BE7D9386FB"
+               BlueprintIdentifier = "58E715655C38075E167E7C74269081FC"
                BlueprintName = "Pods-NSURL_Caching"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-NSURL_Caching.a">

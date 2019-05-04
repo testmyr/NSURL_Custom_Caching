@@ -79,13 +79,13 @@
                                                             <rect key="frame" x="227.33333333333331" y="0.0" width="140.33333333333331" height="120.66666666666667"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJ1-zg-uN4">
-                                                                    <rect key="frame" x="97.666666666666686" y="50.333333333333336" width="42.666666666666657" height="20.333333333333336"/>
+                                                                    <rect key="frame" x="97.666666666666686" y="45.333333333333336" width="42.666666666666657" height="20.333333333333336"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vPO-hd-gXz">
-                                                                    <rect key="frame" x="65" y="70.666666666666671" width="75.333333333333314" height="50"/>
+                                                                    <rect key="frame" x="57.666666666666693" y="65.666666666666671" width="82.666666666666686" height="55"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="vPO-hd-gXz" secondAttribute="height" multiplier="1.5" id="gJd-bq-rvv"/>
                                                                     </constraints>
@@ -95,7 +95,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="vPO-hd-gXz" secondAttribute="trailing" id="5dE-11-PfL"/>
                                                                 <constraint firstAttribute="bottom" secondItem="vPO-hd-gXz" secondAttribute="bottom" id="Cgd-mq-xD3"/>
-                                                                <constraint firstItem="WJ1-zg-uN4" firstAttribute="centerY" secondItem="xKq-gt-kng" secondAttribute="centerY" id="Gz4-zh-e3Q"/>
+                                                                <constraint firstItem="WJ1-zg-uN4" firstAttribute="centerY" secondItem="xKq-gt-kng" secondAttribute="centerY" constant="-5" id="Gz4-zh-e3Q"/>
                                                                 <constraint firstAttribute="trailing" secondItem="WJ1-zg-uN4" secondAttribute="trailing" id="jOo-E0-L4g"/>
                                                                 <constraint firstItem="vPO-hd-gXz" firstAttribute="top" secondItem="WJ1-zg-uN4" secondAttribute="bottom" id="ruo-zR-Rld"/>
                                                                 <constraint firstItem="WJ1-zg-uN4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xKq-gt-kng" secondAttribute="leading" id="wrG-vS-qzA"/>

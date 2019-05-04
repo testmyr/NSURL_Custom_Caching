@@ -9,6 +9,7 @@
 #import "PopularRepositoriesVC.h"
 #import "PopularRepositoriesViewModel.h"
 #import "PopularRepoCell.h"
+#import <SDWebImage/SDWebImage.h>
 
 @interface PopularRepositoriesVC () <UITableViewDataSource, UITableViewDelegate, PopularRepositoriesViewModelViewDelegate>
 
@@ -43,16 +44,9 @@
     cell.lblRepoDescr.text = currentItem.descr;
     cell.lblOwnerName.text = currentItem.ownerName;
     
-    //requesting and setting an owners avatar image
-    //TODO SDWebImage or custom
     if (currentItem.ownerAvatarUrl != nil) {
         NSURL *imageURL = [NSURL URLWithString: currentItem.ownerAvatarUrl];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                cell.imgOwner.image = [UIImage imageWithData:imageData];
-            });
-        });
+        [cell.imgOwner sd_setImageWithURL:imageURL];
     } else {
         cell.imgOwner.image = nil;
     }
