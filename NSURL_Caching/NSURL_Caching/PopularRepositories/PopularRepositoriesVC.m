@@ -10,6 +10,7 @@
 #import "PopularRepositoriesViewModel.h"
 #import "PopularRepoCell.h"
 #import <SDWebImage/SDWebImage.h>
+#import "CommitsVC.h"
 
 @interface PopularRepositoriesVC () <UITableViewDataSource, UITableViewDelegate, PopularRepositoriesViewModelViewDelegate>
 
@@ -24,6 +25,7 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
     self.viewModel = [[PopularRepositoriesViewModel alloc] initWithView:self];
     [self.viewModel start];
 }
@@ -67,7 +69,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSString * storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+    CommitsVC * vc = [storyboard instantiateViewControllerWithIdentifier:@"CommitsVC"];
+    vc.viewModel.repository = [self.viewModel repoForRowAtIndex:indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

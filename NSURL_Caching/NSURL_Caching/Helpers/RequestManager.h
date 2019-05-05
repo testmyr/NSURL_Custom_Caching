@@ -24,7 +24,9 @@ typedef void (^OperationSuccessCompletionBlock)(id);
 - (void) getPopularRepositoriesForSwiftAtPage: (NSInteger) pageIndex
                                        sucess: (OperationSuccessCompletionBlock) success
                                       failure: (OperationFailureCompletionBlock) failure;
-- (void) getCommitsForRepo: (Repo*) repository;
+- (void) getCommitsForRepo: (Repo*) repository
+                    sucess: (OperationSuccessCompletionBlock) success
+                   failure: (OperationFailureCompletionBlock) failure;
 
 @end
 

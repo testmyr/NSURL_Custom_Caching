@@ -21,6 +21,10 @@
 		5A4CB18D227DDC9C00E6B048 /* PopularRepositoriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB18C227DDC9C00E6B048 /* PopularRepositoriesVC.m */; };
 		5A4CB190227DF15500E6B048 /* PopularRepoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB18F227DF15500E6B048 /* PopularRepoCell.m */; };
 		5A4CB193227DF4A800E6B048 /* PopularRepositoriesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB192227DF4A800E6B048 /* PopularRepositoriesViewModel.m */; };
+		5A4CB19F227E494E00E6B048 /* CommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB199227E494E00E6B048 /* CommitCell.m */; };
+		5A4CB1A0227E494E00E6B048 /* CommitsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB19A227E494E00E6B048 /* CommitsVC.m */; };
+		5A4CB1A1227E494E00E6B048 /* CommitsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4CB19E227E494E00E6B048 /* CommitsViewModel.m */; };
+		5A89BB4A227F142C00724854 /* Commit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A89BB49227F142C00724854 /* Commit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +53,14 @@
 		5A4CB18F227DF15500E6B048 /* PopularRepoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopularRepoCell.m; sourceTree = "<group>"; };
 		5A4CB191227DF4A700E6B048 /* PopularRepositoriesViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopularRepositoriesViewModel.h; sourceTree = "<group>"; };
 		5A4CB192227DF4A800E6B048 /* PopularRepositoriesViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopularRepositoriesViewModel.m; sourceTree = "<group>"; };
+		5A4CB199227E494E00E6B048 /* CommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitCell.m; sourceTree = "<group>"; };
+		5A4CB19A227E494E00E6B048 /* CommitsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitsVC.m; sourceTree = "<group>"; };
+		5A4CB19B227E494E00E6B048 /* CommitsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitsVC.h; sourceTree = "<group>"; };
+		5A4CB19C227E494E00E6B048 /* CommitsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitsViewModel.h; sourceTree = "<group>"; };
+		5A4CB19D227E494E00E6B048 /* CommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitCell.h; sourceTree = "<group>"; };
+		5A4CB19E227E494E00E6B048 /* CommitsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitsViewModel.m; sourceTree = "<group>"; };
+		5A89BB48227F142C00724854 /* Commit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Commit.h; sourceTree = "<group>"; };
+		5A89BB49227F142C00724854 /* Commit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Commit.m; sourceTree = "<group>"; };
 		8850BEC6B074F5CEF244DD1D /* Pods-NSURL_Caching.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSURL_Caching.release.xcconfig"; path = "Pods/Target Support Files/Pods-NSURL_Caching/Pods-NSURL_Caching.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +97,8 @@
 		5A4CB12D227B647600E6B048 /* NSURL_Caching */ = {
 			isa = PBXGroup;
 			children = (
+				5A4CB198227E460600E6B048 /* Commits */,
+				5A4CB197227E45BC00E6B048 /* PopularRepositories */,
 				5A4CB14B227D11A600E6B048 /* Models */,
 				5A4CB144227D004600E6B048 /* Helpers */,
 				5A4CB12E227B647600E6B048 /* AppDelegate.h */,
@@ -94,12 +108,6 @@
 				5A4CB139227B648900E6B048 /* LaunchScreen.storyboard */,
 				5A4CB13C227B648900E6B048 /* Info.plist */,
 				5A4CB13D227B648900E6B048 /* main.m */,
-				5A4CB18E227DF15500E6B048 /* PopularRepoCell.h */,
-				5A4CB18F227DF15500E6B048 /* PopularRepoCell.m */,
-				5A4CB18B227DDC9C00E6B048 /* PopularRepositoriesVC.h */,
-				5A4CB18C227DDC9C00E6B048 /* PopularRepositoriesVC.m */,
-				5A4CB191227DF4A700E6B048 /* PopularRepositoriesViewModel.h */,
-				5A4CB192227DF4A800E6B048 /* PopularRepositoriesViewModel.m */,
 			);
 			path = NSURL_Caching;
 			sourceTree = "<group>";
@@ -122,9 +130,37 @@
 			children = (
 				5A4CB14C227D121400E6B048 /* Repo.h */,
 				5A4CB14D227D121400E6B048 /* Repo.m */,
+				5A89BB48227F142C00724854 /* Commit.h */,
+				5A89BB49227F142C00724854 /* Commit.m */,
 				5A4CB14F227D238C00E6B048 /* GitHubResponses.xcdatamodeld */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5A4CB197227E45BC00E6B048 /* PopularRepositories */ = {
+			isa = PBXGroup;
+			children = (
+				5A4CB18E227DF15500E6B048 /* PopularRepoCell.h */,
+				5A4CB18F227DF15500E6B048 /* PopularRepoCell.m */,
+				5A4CB18B227DDC9C00E6B048 /* PopularRepositoriesVC.h */,
+				5A4CB18C227DDC9C00E6B048 /* PopularRepositoriesVC.m */,
+				5A4CB191227DF4A700E6B048 /* PopularRepositoriesViewModel.h */,
+				5A4CB192227DF4A800E6B048 /* PopularRepositoriesViewModel.m */,
+			);
+			path = PopularRepositories;
+			sourceTree = "<group>";
+		};
+		5A4CB198227E460600E6B048 /* Commits */ = {
+			isa = PBXGroup;
+			children = (
+				5A4CB19D227E494E00E6B048 /* CommitCell.h */,
+				5A4CB199227E494E00E6B048 /* CommitCell.m */,
+				5A4CB19B227E494E00E6B048 /* CommitsVC.h */,
+				5A4CB19A227E494E00E6B048 /* CommitsVC.m */,
+				5A4CB19C227E494E00E6B048 /* CommitsViewModel.h */,
+				5A4CB19E227E494E00E6B048 /* CommitsViewModel.m */,
+			);
+			path = Commits;
 			sourceTree = "<group>";
 		};
 		8E1B87DB5D9C9CB21E05B59F /* Frameworks */ = {
@@ -242,13 +278,17 @@
 			files = (
 				5A4CB151227D238C00E6B048 /* GitHubResponses.xcdatamodeld in Sources */,
 				5A4CB14A227D01B700E6B048 /* RequestManager.m in Sources */,
+				5A89BB4A227F142C00724854 /* Commit.m in Sources */,
 				5A4CB18A227DCDCF00E6B048 /* CoreDataHelper.m in Sources */,
 				5A4CB13E227B648900E6B048 /* main.m in Sources */,
 				5A4CB14E227D121400E6B048 /* Repo.m in Sources */,
+				5A4CB19F227E494E00E6B048 /* CommitCell.m in Sources */,
 				5A4CB147227D007C00E6B048 /* CustomURLProtocol.m in Sources */,
 				5A4CB193227DF4A800E6B048 /* PopularRepositoriesViewModel.m in Sources */,
 				5A4CB18D227DDC9C00E6B048 /* PopularRepositoriesVC.m in Sources */,
+				5A4CB1A1227E494E00E6B048 /* CommitsViewModel.m in Sources */,
 				5A4CB130227B647600E6B048 /* AppDelegate.m in Sources */,
+				5A4CB1A0227E494E00E6B048 /* CommitsVC.m in Sources */,
 				5A4CB190227DF15500E6B048 /* PopularRepoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

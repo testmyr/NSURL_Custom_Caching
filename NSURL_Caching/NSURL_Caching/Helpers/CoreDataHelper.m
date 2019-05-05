@@ -46,6 +46,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz"];
     NSDate *date = [dateFormatter dateFromString:dateStr];
+    //will be used in future to prevent too often saving data in case they are requested every time
     cachedResponse.timestamp = date;
     
     cachedResponse.mimeType = response.MIMEType;
@@ -59,6 +60,7 @@
 
 + (void) cleanCleanable {
     //FYI cleanableManually could be changed into Int and array of cleanable path urls could be mapped into that Int value(which would be a R-tree in core data)
+    //thus every urlPath could be cleaned separately
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"cleanableManually == YES"];
     NSFetchRequest *fetchRequest = [GitHubResponse fetchRequest];
     [fetchRequest setPredicate:predicate];

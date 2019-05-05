@@ -12,13 +12,4 @@
 
 @synthesize ownerName, name, descr, ownerAvatarUrl;
 
-- (instancetype) initWithName: (NSString *)name ownerName: (NSString *)ownerName {    
-    self = [super init];
-    if (self) {
-        self.ownerName = ownerName;
-        self.name = name;
-    }
-    return self;
-}
-
 @end

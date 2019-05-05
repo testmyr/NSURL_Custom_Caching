@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (Repo*) repoForRowAtIndex: (NSInteger) index;
 - (void) loadNextPage;
 - (void) cleanReposCache;
+- (void) didSelectItemAt: (NSInteger) index;
 
 @end
 

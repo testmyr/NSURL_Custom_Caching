@@ -17,9 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, retain) NSString * descr;
 @property (nonatomic, retain) NSString * ownerAvatarUrl;
 
-
-- (instancetype) initWithName: (NSString *)name ownerName: (NSString *)ownerName;
-
 @end
 
 NS_ASSUME_NONNULL_END

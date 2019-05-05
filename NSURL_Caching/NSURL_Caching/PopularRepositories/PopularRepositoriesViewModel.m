@@ -10,11 +10,15 @@
 #import "RequestManager.h"
 #import "CoreDataHelper.h"
 
+@interface PopularRepositoriesViewModel()
+
+@property (strong, nonatomic) NSMutableArray *repositories;
+
+@end
+
 @implementation PopularRepositoriesViewModel
 
-@synthesize delegate;
-
-NSMutableArray *repositories;
+@synthesize delegate, repositories;
 
 - (instancetype)initWithView: (id<PopularRepositoriesViewModelViewDelegate>) owner
 {
@@ -26,16 +30,19 @@ NSMutableArray *repositories;
 }
 
 - (void)start {
-    repositories = [[NSMutableArray alloc] initWithCapacity:20];
-    //TODO refactoring
+    //TODO refactoring DRY
     [[RequestManager sharedInstance] getPopularRepositoriesForSwiftAtPage:1
                                                                    sucess:^(id result){
                                                                        if (result != nil) {
                                                                            NSArray *recivedItems = (NSArray*) result;
                                                                            if (recivedItems != nil) {
+                                                                               self->repositories = [[NSMutableArray alloc] initWithCapacity:20];
                                                                                for (NSDictionary* item in recivedItems) {
                                                                                    NSString *name = item[@"name"];
-                                                                                   NSString *descr = item[@"description"];
+                                                                                   NSString *descr;
+                                                                                   if (((NSString *)item[@"description"]) != nil) {
+                                                                                       descr = item[@"description"];
+                                                                                   }
                                                                                    NSDictionary *owner = item[@"owner"];
                                                                                    NSString *ownerName;
                                                                                    NSString *ownerAvatarUrl;
@@ -67,7 +74,8 @@ NSMutableArray *repositories;
 }
 
 - (Repo*) repoForRowAtIndex: (NSInteger) index {
-    return repositories.count > 0 ? repositories[index] : 0;
+    //stub
+    return repositories.count > 0 ? repositories[index] : [Repo new];
 }
 
 - (void) loadNextPage {
@@ -79,7 +87,13 @@ NSMutableArray *repositories;
                                                                            if (recivedItems != nil) {
                                                                                for (NSDictionary* item in recivedItems) {
                                                                                    NSString *name = item[@"name"];
-                                                                                   NSString *descr = item[@"description"];
+                                                                                   if ([name isEqualToString:@"socket.io-client-swift"]) {
+                                                                                       NSLog(@"FUCK!");
+                                                                                   }
+                                                                                   NSString *descr = @"";
+                                                                                   if (![item[@"description"] isKindOfClass:[NSNull class]]) {
+                                                                                       descr = item[@"description"];
+                                                                                   }
                                                                                    NSDictionary *owner = item[@"owner"];
                                                                                    NSString *ownerName;
                                                                                    NSString *ownerAvatarUrl;
@@ -92,7 +106,7 @@ NSMutableArray *repositories;
                                                                                    newInst.descr = descr;
                                                                                    newInst.ownerName = ownerName;
                                                                                    newInst.ownerAvatarUrl = ownerAvatarUrl;
-                                                                                   [repositories addObject:newInst];
+                                                                                   [self->repositories addObject:newInst];
                                                                                }
                                                                                [self.delegate updateView];
                                                                            }
@@ -103,9 +117,12 @@ NSMutableArray *repositories;
                                                                   }];
 }
 
-- (void) cleanReposCache {    
+- (void) cleanReposCache {
     [CoreDataHelper cleanCleanable];
     [self start];
+}
+
+- (void) didSelectItemAt: (NSInteger) index {
 }
 
 @end
