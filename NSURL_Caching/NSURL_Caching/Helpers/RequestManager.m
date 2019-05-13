@@ -63,7 +63,33 @@ AFHTTPSessionManager * manager;
                                    failure: (OperationFailureCompletionBlock) failure {
     NSDictionary *params = @{@"q": @"language:Swift", @"page": @(pageIndex), @"per_page": REPO_PAGE_SIZE};
     [manager GET:[NSString stringWithFormat:@"%@%@", BASE_URL, REPOSITORIES_PATH] parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        success(responseObject[@"items"]);
+        if (responseObject[@"items"] != nil) {
+            NSArray *recivedItems = (NSArray*) responseObject[@"items"];
+            NSMutableArray *repositories = [[NSMutableArray alloc] initWithCapacity:20];
+            if (recivedItems != nil) {
+                for (NSDictionary* item in recivedItems) {
+                    NSString *name = item[@"name"];
+                    NSString *descr;
+                    if (((NSString *)item[@"description"]) != nil) {
+                        descr = item[@"description"];
+                    }
+                    NSDictionary *owner = item[@"owner"];
+                    NSString *ownerName;
+                    NSString *ownerAvatarUrl;
+                    if (owner != nil) {
+                        ownerName = owner[@"login"];
+                        ownerAvatarUrl = owner[@"avatar_url"];
+                    }
+                    Repo *newInst = [Repo new];
+                    newInst.name = name;
+                    newInst.descr = descr;
+                    newInst.ownerName = ownerName;
+                    newInst.ownerAvatarUrl = ownerAvatarUrl;
+                    [repositories addObject:newInst];
+                }
+            }
+            success(repositories);
+        }
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         failure(error);
@@ -140,7 +166,7 @@ AFHTTPSessionManager * manager;
                 if (![commitItem[@"author"][@"login"] isKindOfClass:[NSNull class]]) {
                     author = commitItem[@"author"][@"login"];
                 }
-                if (commitItem[@"author"][@"login"] != nil) {
+                if (![commitItem[@"author"][@"avatar_url"] isKindOfClass:[NSNull class]]) {
                     authorUrl = commitItem[@"author"][@"avatar_url"];
                 }
             }

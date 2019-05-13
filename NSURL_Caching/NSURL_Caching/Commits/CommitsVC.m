@@ -50,7 +50,7 @@
     Commit *currentItem = [self.viewModel commitForRowAtIndex:indexPath.row];
     NSString *branchName = currentItem.branchName;
     if ([branchName isEqual:@""]) {
-        cell.lblBranchName.text = @"No branch. Sorry...";
+        cell.lblBranchName.text = @"The branch was deleted.";
         cell.lblBranchName.textColor = [UIColor redColor];
     } else {
         cell.lblBranchName.text = branchName;

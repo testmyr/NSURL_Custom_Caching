@@ -37,26 +37,7 @@
                                                                            NSArray *recivedItems = (NSArray*) result;
                                                                            if (recivedItems != nil) {
                                                                                self->repositories = [[NSMutableArray alloc] initWithCapacity:20];
-                                                                               for (NSDictionary* item in recivedItems) {
-                                                                                   NSString *name = item[@"name"];
-                                                                                   NSString *descr;
-                                                                                   if (((NSString *)item[@"description"]) != nil) {
-                                                                                       descr = item[@"description"];
-                                                                                   }
-                                                                                   NSDictionary *owner = item[@"owner"];
-                                                                                   NSString *ownerName;
-                                                                                   NSString *ownerAvatarUrl;
-                                                                                   if (owner != nil) {
-                                                                                       ownerName = owner[@"login"];
-                                                                                       ownerAvatarUrl = owner[@"avatar_url"];
-                                                                                   }
-                                                                                   Repo *newInst = [Repo new];
-                                                                                   newInst.name = name;
-                                                                                   newInst.descr = descr;
-                                                                                   newInst.ownerName = ownerName;
-                                                                                   newInst.ownerAvatarUrl = ownerAvatarUrl;
-                                                                                   [repositories addObject:newInst];
-                                                                               }
+                                                                               [self->repositories addObjectsFromArray:recivedItems];
                                                                                [self.delegate updateView];
                                                                            }
                                                                        }
@@ -85,29 +66,7 @@
                                                                        if (result != nil) {
                                                                            NSArray *recivedItems = (NSArray*) result;
                                                                            if (recivedItems != nil) {
-                                                                               for (NSDictionary* item in recivedItems) {
-                                                                                   NSString *name = item[@"name"];
-                                                                                   if ([name isEqualToString:@"socket.io-client-swift"]) {
-                                                                                       NSLog(@"FUCK!");
-                                                                                   }
-                                                                                   NSString *descr = @"";
-                                                                                   if (![item[@"description"] isKindOfClass:[NSNull class]]) {
-                                                                                       descr = item[@"description"];
-                                                                                   }
-                                                                                   NSDictionary *owner = item[@"owner"];
-                                                                                   NSString *ownerName;
-                                                                                   NSString *ownerAvatarUrl;
-                                                                                   if (owner != nil) {
-                                                                                       ownerName = owner[@"login"];
-                                                                                       ownerAvatarUrl = owner[@"avatar_url"];
-                                                                                   }
-                                                                                   Repo *newInst = [Repo new];
-                                                                                   newInst.name = name;
-                                                                                   newInst.descr = descr;
-                                                                                   newInst.ownerName = ownerName;
-                                                                                   newInst.ownerAvatarUrl = ownerAvatarUrl;
-                                                                                   [self->repositories addObject:newInst];
-                                                                               }
+                                                                               [self->repositories addObjectsFromArray:recivedItems];
                                                                                [self.delegate updateView];
                                                                            }
                                                                        }

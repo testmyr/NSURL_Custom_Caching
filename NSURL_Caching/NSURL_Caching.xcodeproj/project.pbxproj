@@ -103,6 +103,7 @@
 				5A4CB144227D004600E6B048 /* Helpers */,
 				5A4CB12E227B647600E6B048 /* AppDelegate.h */,
 				5A4CB12F227B647600E6B048 /* AppDelegate.m */,
+				5A4CB189227DCDCF00E6B048 /* CoreDataHelper.m */,
 				5A4CB134227B647600E6B048 /* Main.storyboard */,
 				5A4CB137227B648900E6B048 /* Assets.xcassets */,
 				5A4CB139227B648900E6B048 /* LaunchScreen.storyboard */,
@@ -120,7 +121,6 @@
 				5A4CB148227D01B700E6B048 /* RequestManager.h */,
 				5A4CB149227D01B700E6B048 /* RequestManager.m */,
 				5A4CB188227DCDCF00E6B048 /* CoreDataHelper.h */,
-				5A4CB189227DCDCF00E6B048 /* CoreDataHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
