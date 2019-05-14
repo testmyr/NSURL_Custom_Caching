@@ -28,8 +28,16 @@
     self.navigationController.navigationBarHidden = YES;
     self.viewModel = [[PopularRepositoriesViewModel alloc] initWithView:self];
     [self.viewModel start];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tblVw addSubview:refreshControl];
 }
-
+- (void)refresh:(UIRefreshControl *)refreshControl
+{
+    [self.viewModel cleanReposCache];
+    [refreshControl endRefreshing];
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -60,12 +68,6 @@
 }
 
 #pragma mark - UITableViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y == 0 ) {
-        [self.viewModel cleanReposCache];
-    }
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
