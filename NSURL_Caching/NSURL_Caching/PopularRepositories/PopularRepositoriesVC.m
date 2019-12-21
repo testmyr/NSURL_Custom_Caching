@@ -12,7 +12,7 @@
 #import <SDWebImage/SDWebImage.h>
 #import "CommitsVC.h"
 
-@interface PopularRepositoriesVC () <UITableViewDataSource, UITableViewDelegate, PopularRepositoriesViewModelViewDelegate>
+@interface PopularRepositoriesVC () <UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching, PopularRepositoriesViewModelViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tblVw;
 
@@ -32,6 +32,7 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.tblVw addSubview:refreshControl];
+    self.tblVw.prefetchDataSource = self;
 }
 - (void)refresh:(UIRefreshControl *)refreshControl
 {
@@ -60,10 +61,6 @@
     } else {
         cell.imgOwner.image = nil;
     }
-    
-    if (indexPath.row == [self.viewModel numberOfRepositories] - 1) {
-        [self.viewModel loadNextPage];
-    }
     return cell;
 }
 
@@ -77,7 +74,6 @@
     vc.viewModel.repository = [self.viewModel repoForRowAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat width = self.tblVw.frame.size.width;
@@ -95,12 +91,28 @@
     return cellHeight;
 }
 
+
+#pragma mark - UITableViewDataSourcePrefetching
+
+- (void)tableView:(UITableView *)tableView prefetchRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
+    NSInteger latestRowNumber = [self.viewModel numberOfRepositories] - 1;
+    for (int i = 0; i < indexPaths.count; ++i) {
+        if(indexPaths[i].row == latestRowNumber) {
+            [self.viewModel loadNextPage];
+        }
+    }
+}
+
 #pragma mark - PopularRepositoriesViewModelViewDelegate
 
 - (void) updateView {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tblVw reloadData];
     });
+}
+
+- (void) insertRowAtIndex: (NSInteger) index {
+    
 }
 
 - (void) updateRowAtIndex: (NSInteger) index {

@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) id<PopularRepositoriesViewModelProtocol> viewModel;
 
 - (void) updateView;
+- (void) insertRowAtIndex: (NSInteger) index;
 - (void) updateRowAtIndex: (NSInteger) index;
 
 @end
